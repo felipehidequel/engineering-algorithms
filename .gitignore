@@ -36,6 +36,11 @@
 *.exe
 *.out
 *.app
+*.csv
 
 # debug information files
 *.dwo
+
+*.png
+.vscode/
+venv/
