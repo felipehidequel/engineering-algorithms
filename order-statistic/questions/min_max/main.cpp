@@ -88,7 +88,7 @@ void min_max(const std::vector<int> &a, int &min, int &max)
 
 int main()
 {
-    int n = 100'000'000;
+    int n = 500'000'000;
     std::vector<int> a(n);
 
     std::mt19937 gen(42);
