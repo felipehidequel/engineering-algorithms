@@ -1,0 +1,31 @@
+import random
+
+def mediana_ponderada(elementos, pesos):
+    if len(elementos) == 1:
+        return elementos[0]
+
+    pivo = random.choice(elementos)
+
+    menores, iguais, maiores = [], [], []
+    pesos_menores, pesos_iguais, pesos_maiores = [], [], []
+
+    for elem, peso in zip(elementos, pesos):
+        if elem < pivo:
+            menores.append(elem)
+            pesos_menores.append(peso)
+        elif elem == pivo:
+            iguais.append(elem)
+            pesos_iguais.append(peso)
+        else:
+            maiores.append(elem)
+            pesos_maiores.append(peso)
+
+    soma_pesos_menores = sum(pesos_menores)
+    soma_pesos_iguais = sum(pesos_iguais)
+
+    if soma_pesos_menores < 0.5 <= soma_pesos_menores + soma_pesos_iguais:
+        return pivo
+    elif soma_pesos_menores >= 0.5:
+        return mediana_ponderada(menores, pesos_menores)
+    else:
+        return mediana_ponderada(maiores, pesos_maiores)
